@@ -1,0 +1,38 @@
+<h2>Pick Machine Learning Model</h2>
+<p>Select Machine Learning Model and run the training by pressing the Train button</p>
+
+  <div class="form-group">
+    <form #penguinForm="ngForm">
+
+      <div class="form-group">
+        <select
+          class="form-control"
+          [(ngModel)]="trainParams.model"
+          name="model">
+          <option *ngFor="let model of this.models">{{model}}</option>
+        </select>
+        <div class="form-group">
+          <label for="path">Path:</label>
+          <input type="text" class="form-control" id="path"
+                  [(ngModel)]="trainParams.path" name="path">
+        </div>
+
+        <div class="form-group">
+          <label for="test_size">Test Size:</label>
+          <input type="number" class="form-control" id="test_size"
+                  [(ngModel)]="trainParams.testsize" name="test_size">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="card-container">
+    <a class="card" target="_blank" rel="noopener" (click)="onTrainClick()">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+
+      <span style="color: aliceblue;">Train</span>
+    </a>
+  </div>
+
+  <p>Result: {{modelAccuracy}}</p>

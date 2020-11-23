@@ -1,0 +1,64 @@
+<h2>Predict</h2>
+<p>Enter Penguin Data and check the result.</p>
+<p>Make sure that you trained model beforehand.</p>
+
+<div class="form-group">
+  <form #penguinForm="ngForm">
+
+    <div class="form-group">
+      <label for="island">Island: </label>
+      <select
+        class="form-control"
+        [(ngModel)]="penguin.island"
+        name="island">
+        <option *ngFor="let isl of islands">{{isl}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="culmenLength">Culmen Length:</label>
+      <input type="text" class="form-control" id="culmenLength"
+              [(ngModel)]="penguin.culmenLength" name="culmenLength">
+    </div>
+
+    <div class="form-group">
+      <label for="culmenDepth">Culmen Depth:</label>
+      <input type="text" class="form-control" id="culmenDepth"
+              [(ngModel)]="penguin.culmenDepth" name="culmenDepth">
+    </div>
+
+    <div class="form-group">
+      <label for="flipperLength">Flipper Length:</label>
+      <input type="text" class="form-control" id="flipperLength"
+              [(ngModel)]="penguin.flipperLength" name="flipperLength">
+    </div>
+
+    <div class="form-group">
+      <label for="bodyMass">Body Mass:</label>
+      <input type="text" class="form-control" id="bodyMass"
+              [(ngModel)]="penguin.bodyMass" name="bodyMass">
+    </div>
+
+    <div class="form-group">
+      <label for="sex">Sex: </label>
+      <select
+        class="form-control"
+        [(ngModel)]="penguin.sex"
+        name="sex">
+        <option *ngFor="let sex of sexes">{{sex}}</option>
+      </select>
+    </div>
+
+  </form>
+</div>
+
+<div class="card-container">
+  <a class="card" target="_blank" rel="noopener" (click)="onPredict()">
+    <span style="color: aliceblue;">Predict</span>
+  </a>
+</div>
+
+<p>Result: {{prediction}}</p>
+
+
+
